@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Argentum News — Privacy Policy</title>
+  <meta name="description" content="Privacy policy for the Argentum News app." />
+  <style>
+    :root { --navy:#0F2742; --accent:#1F6FEB; --ink:#1a2230; --muted:#5b6573; --line:#e6e9ee; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+           color:var(--ink); line-height:1.6; background:#fff; }
+    header { background:var(--navy); color:#fff; padding:40px 20px; }
+    .wrap { max-width:760px; margin:0 auto; padding:0 20px; }
+    header .wrap { padding:0 20px; }
+    h1 { margin:0 0 6px; font-size:1.7rem; }
+    header p { margin:0; color:#c7d3e6; }
+    main { padding:32px 0 64px; }
+    h2 { margin-top:2em; font-size:1.2rem; color:var(--navy); }
+    a { color:var(--accent); }
+    code { background:#f3f5f8; padding:1px 5px; border-radius:4px; font-size:.9em; }
+    .note { margin-top:2.5em; padding:14px 16px; background:#fff7ed; border:1px solid #fed7aa;
+            border-radius:10px; color:#7c2d12; }
+    footer { border-top:1px solid var(--line); padding:20px; color:var(--muted); font-size:.85rem; text-align:center; }
+  </style>
+</head>
+<body>
+  <header><div class="wrap">
+    <h1>Argentum News — Privacy Policy</h1>
+    <p>Effective date: June 8, 2026</p>
+  </div></header>
+
+  <main class="wrap">
+    <p>Argentum News (“the app”, “we”, “us”) is a financial news reader with an
+    educational AI assistant. This policy explains what data the app handles and
+    your choices. We designed the app to collect as little as possible: there are
+    <strong>no user accounts, no login, no advertising, and no analytics or
+    tracking SDKs</strong>.</p>
+
+    <h2>1. Information we collect</h2>
+    <p><strong>On your device only (never sent to us):</strong></p>
+    <ul>
+      <li><strong>Preferences</strong> — your selected market filters (Equities,
+      Crypto, Forex, Futures) and language (English, Spanish, Portuguese), stored
+      locally (iOS <code>UserDefaults</code>, Android <code>DataStore</code>).</li>
+      <li><strong>Offline cache</strong> — up to the last 50 news items, cached
+      locally so the feed works without a connection.</li>
+    </ul>
+    <p>We do <strong>not</strong> collect your name, email, contacts, location,
+    tracking identifiers, or advertising identifiers.</p>
+
+    <p><strong>Sent to our services when you use a feature:</strong></p>
+    <ul>
+      <li><strong>News feed</strong> — loading the feed sends only your chosen
+      market filters and language to the Argentum Feed API. These are not
+      personal to you.</li>
+      <li><strong>“How does this affect me?” assistant</strong> — when you use it,
+      the app sends the relevant news item, your selected markets, and your
+      question to the Argentum Agent Service, which uses Anthropic’s Claude API to
+      generate a plain-language educational explanation. A short-lived session is
+      held <strong>in server memory only</strong> (typically cleared within about
+      an hour of inactivity) and is <strong>not</strong> tied to your identity or
+      stored long-term.</li>
+    </ul>
+
+    <h2>2. Third-party services</h2>
+    <ul>
+      <li><strong>Argentum Feed API</strong> — aggregates headlines from public news sources.</li>
+      <li><strong>Argentum Agent Service / Anthropic Claude API</strong> — generates
+      educational explanations. See Anthropic’s
+      <a href="https://www.anthropic.com/legal/privacy">privacy policy</a>.</li>
+      <li><strong>News publishers</strong> — articles come from third parties (e.g.
+      AP, MarketWatch, CoinDesk, The Block); opening a story uses your browser and
+      that publisher’s own policy.</li>
+    </ul>
+    <p>We do not sell or share your data with advertisers or data brokers.</p>
+
+    <h2>3. Your rights and choices</h2>
+    <ul>
+      <li><strong>Clear local data</strong> — deleting the app or clearing its
+      storage removes all preferences and cached news from your device.</li>
+      <li><strong>Access or deletion requests</strong> — because we keep no
+      accounts or long-term personal records, there is generally no personal data
+      to retrieve or erase. If you believe we hold information about you, contact
+      us and we will respond consistent with applicable law (including GDPR and
+      CCPA where they apply).</li>
+    </ul>
+
+    <h2>4. Children’s privacy</h2>
+    <p>Argentum News is not directed to children under 13 (or under 16 where
+    required), and we do not knowingly collect data from them.</p>
+
+    <h2>5. Changes to this policy</h2>
+    <p>We may update this policy as the app evolves; material changes will appear
+    here with a new effective date.</p>
+
+    <h2>6. Contact</h2>
+    <p>Privacy questions or requests: <a href="mailto:privacy@argentum.app">privacy@argentum.app</a></p>
+
+    <div class="note">⚠️ <strong>Educational use only.</strong> Argentum News provides
+    general financial education and news. It is <strong>not financial advice</strong>
+    and nothing in the app is a recommendation to buy, sell, or hold any asset.</div>
+  </main>
+
+  <footer>© 2026 Argentum · Argentum News</footer>
+</body>
+</html>
