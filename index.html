@@ -40,9 +40,10 @@
     platform it means wherever they differ. It explains what data the app
     handles and your choices. There is
     <strong>no advertising, no ad tracking and no advertising identifiers</strong>
-    in the app, and we do not sell your data. For live prices the app talks
-    directly to two market-data providers — section 4 names every third party
-    and says what each one receives.</p>
+    in the app, and we do not sell your data. We do use a crash- and
+    error-reporting SDK (Sentry) and, for live prices, the app talks directly to
+    two market-data providers — section 4 names every third party and says what
+    each one receives.</p>
 
     <h2>1. Information we collect</h2>
 
@@ -109,6 +110,10 @@
     your account so we can unlock paid features. We never receive or store your
     payment card details — those stay with Apple or Google.</p>
 
+    <p><strong>Diagnostics.</strong> When the app hits an error it sends a
+    report to <strong>Sentry</strong>. Section 4 says exactly what that report
+    contains and what is stripped out of it.</p>
+
     <p><strong>Installation identifier.</strong> The app generates a random
     identifier the first time it runs, stores it on the device, and sends it
     with requests to our AI service so the free daily allowance can be counted
@@ -170,6 +175,19 @@
       (<a href="https://www.coingecko.com/en/privacy">privacy policy</a>).</li>
       <li><strong>Supabase</strong> — authentication and database hosting for
       account data (<a href="https://supabase.com/privacy">privacy policy</a>).</li>
+      <li><strong>Render</strong> — United States hosting provider for our two
+      backend services (the feed API and the AI agent service). Everything those
+      services process passes through its infrastructure
+      (<a href="https://render.com/privacy">privacy policy</a>).</li>
+      <li><strong>Sentry</strong> — crash and error reporting from the app and
+      from our backends. An error report carries the stack trace, the screen,
+      your device model, OS version and app build, error codes, and your
+      Argentum account identifier. It deliberately carries
+      <strong>no financial data</strong> — no holding, no amount, no portfolio
+      symbol — and no credentials, tokens, email address or name; screenshots
+      and view hierarchies are off, and query strings are stripped from every
+      URL before the report is sent
+      (<a href="https://sentry.io/privacy/">privacy policy</a>).</li>
       <li><strong>Google</strong> — three separate roles: <em>Firebase Cloud
       Messaging</em> delivers push notifications on Android; <em>Google Play
       Billing</em> processes Android payments; and <em>Sign in with Google</em>,
@@ -205,6 +223,8 @@
       device; removed on logout or account deletion.</li>
       <li><strong>AI assistant sessions</strong> — server memory only; typically
       cleared within about an hour of inactivity.</li>
+      <li><strong>Diagnostics</strong> — error reports are retained by Sentry
+      under its own retention schedule.</li>
       <li><strong>Purchase records</strong> — subscription records held by Google
       Play and RevenueCat are governed by their policies and by tax/accounting
       requirements.</li>
