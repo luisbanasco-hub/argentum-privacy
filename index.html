@@ -33,8 +33,12 @@
   <main class="wrap">
     <p>Argentum News (“the app”, “we”, “us”) is a financial news reader with an
     educational AI assistant, optional user accounts, portfolio and watchlist
-    features, push notifications, and an optional paid subscription. This policy
-    explains what data the app handles and your choices. There is
+    features, push notifications, and an optional paid subscription. It is
+    published for <strong>iPhone (App Store)</strong> and
+    <strong>Android (Google Play)</strong> under the same bundle id
+    <code>com.argentum.news</code>; this policy covers both, and says which
+    platform it means wherever they differ. It explains what data the app
+    handles and your choices. There is
     <strong>no advertising and no third-party analytics or tracking SDKs</strong>
     in the app, and we do not sell your data.</p>
 
@@ -59,22 +63,25 @@
     </ul>
 
     <p><strong>Push notifications.</strong> If you are signed in, the app
-    registers a <strong>Firebase Cloud Messaging (FCM) device token</strong> with
-    our servers so we can send you notifications. The token is removed
-    server-side when you log out, and you can disable notifications at any time
-    in Android system settings.</p>
+    registers a device token with our servers so we can send you notifications —
+    an <strong>Apple Push Notification service (APNs)</strong> token on iPhone,
+    a <strong>Firebase Cloud Messaging (FCM)</strong> token on Android. The
+    token is removed server-side when you log out, and you can turn
+    notifications off at any time in your device’s system settings, or from the
+    app’s notification settings.</p>
 
     <p><strong>Purchases.</strong> Subscriptions are processed by
-    <strong>Google Play Billing</strong> and managed through
-    <strong>RevenueCat</strong>. We receive subscription status and a purchase
-    identifier linked to your account so we can unlock paid features. We never
-    receive or store your payment card details — those stay with Google.</p>
+    <strong>Apple’s App Store</strong> on iPhone and <strong>Google Play
+    Billing</strong> on Android, and managed through <strong>RevenueCat</strong>
+    on both. We receive subscription status and a purchase identifier linked to
+    your account so we can unlock paid features. We never receive or store your
+    payment card details — those stay with Apple or Google.</p>
 
     <p><strong>On your device only (never sent to us):</strong></p>
     <ul>
       <li><strong>Preferences</strong> — your selected market filters (Equities,
       Crypto, Forex, Futures) and language (English, Spanish, Portuguese), stored
-      locally (Android <code>DataStore</code>).</li>
+      in the app's own local storage on the device.</li>
       <li><strong>Offline cache</strong> — recent news items cached locally so
       the feed works without a connection.</li>
     </ul>
@@ -112,8 +119,9 @@
       information</a>).</li>
       <li><strong>RevenueCat</strong> — subscription management
       (<a href="https://www.revenuecat.com/privacy">privacy policy</a>).</li>
-      <li><strong>Google Play Billing</strong> — payment processing, governed by
-      Google’s terms and privacy policy.</li>
+      <li><strong>Apple’s App Store</strong> (iPhone) and <strong>Google Play
+      Billing</strong> (Android) — payment processing, governed by Apple’s and
+      Google’s own terms and privacy policies.</li>
       <li><strong>Argentum Feed API</strong> — aggregates headlines from public
       news sources; feed requests include only your market filters and language.</li>
       <li><strong>Argentum Agent Service / Anthropic Claude API</strong> —
@@ -152,8 +160,10 @@
       request a copy or correction of the data linked to your account. We
       respond consistent with applicable law (including GDPR and CCPA where they
       apply).</li>
-      <li><strong>Notifications</strong> — turn off push notifications any time
-      in Android system settings.</li>
+      <li><strong>Notifications</strong> — turn push notifications off any time
+      in your device’s system settings (iPhone: Settings → Notifications →
+      Argentum News; Android: Settings → Apps → Argentum News →
+      Notifications), or from the app’s own notification settings.</li>
     </ul>
 
     <h2>7. Security</h2>
