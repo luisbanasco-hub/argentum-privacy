@@ -295,10 +295,19 @@
     </ul>
 
     <h2>7. Security</h2>
-    <p>Data is sent over encrypted connections (HTTPS/TLS). Account data is
-    protected by access-controlled infrastructure, and API requests for your
-    data require your personal session token. No method of transmission or
-    storage is 100% secure, but we work to protect your information.</p>
+    <p>Data is sent over encrypted connections (HTTPS/TLS). Your account data —
+    portfolio, watchlist, preferences, usage records — is stored behind
+    per-account database rules and every request for it requires your personal
+    session token; a request without one is refused.</p>
+    <p>Two paths work differently and you should know it. Our
+    <strong>AI service accepts requests with or without a session token</strong>:
+    signed in, the app attaches yours and the request is attributed to your
+    account; signed out, the request is anonymous and identified only by the
+    installation identifier. And the <strong>market-data providers in section 4
+    are queried directly by the app</strong>, outside our servers entirely, so
+    what they see is governed by their policies and not by ours.</p>
+    <p>No method of transmission or storage is 100% secure, but we work to
+    protect your information.</p>
 
     <h2>8. Children’s privacy</h2>
     <p>Argentum News is not directed to children under 13 (or under 16 where
