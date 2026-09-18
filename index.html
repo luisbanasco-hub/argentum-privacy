@@ -133,8 +133,11 @@
       language and watchlist picks made without an account stay on the phone
       until you sign in. Filters and language do travel with every request to
       our own feed API, because that is how the feed knows what to return.</li>
-      <li><strong>Session tokens</strong> and, on iPhone, the name Apple
-      provides at first sign-in, held in the device keychain.</li>
+      <li><strong>Session tokens</strong>, kept in the platform’s encrypted
+      store (the Keychain on iPhone, encrypted preferences on Android). On
+      iPhone, the name and address Apple gives on the very first
+      authorization are cached there too, so they are not lost if that first
+      sign-in call fails; they are sent to us and then stop being needed.</li>
     </ul>
     <p>We do <strong>not</strong> collect your contacts, your precise location,
     or advertising identifiers. The app asks for no location or contacts
