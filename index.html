@@ -83,6 +83,10 @@
       Forex, Futures) and your notification settings, saved server-side so they
       follow your account to another device. Signed out, your filters stay on
       the phone.</li>
+      <li><strong>App usage records</strong> — a daily count of AI summaries you
+      used, and which articles you opened a summary for on a given day. This is
+      what enforces the free-tier limit and stops the same article being charged
+      twice.</li>
     </ul>
 
     <p><strong>Live prices.</strong> To price your portfolio, your watchlist and
@@ -140,20 +144,49 @@
     <h2>2. The AI assistant (“How does this affect me?”)</h2>
     <p>When you use the assistant, the app sends the relevant news item, your
     question, your selected market filters and language, and — if you are signed
-    in — your <strong>portfolio holdings, watchlist, and investor profile
-    (risk tolerance and time horizon)</strong> to the Argentum Agent Service.
-    This lets the assistant relate the news to your positions. The service uses
-    Anthropic’s Claude API to generate a plain-language educational explanation.
-    If you are signed out, none of that personal data is available and you get a
-    generic explanation. Conversation sessions are held <strong>in server memory
-    only</strong> (typically cleared within about an hour of inactivity) and are
-    not used to train AI models.</p>
+    in — your <strong>portfolio holdings (symbol, asset type and quantity),
+    watchlist, and investor profile (risk tolerance and time horizon)</strong>
+    to the Argentum Agent Service. This lets the assistant relate the news to
+    your positions. If you are signed out, none of that personal data is
+    available and you get a generic explanation.</p>
+
+    <p>The service uses <strong>Anthropic’s Claude API</strong> to generate a
+    plain-language educational explanation. What reaches Anthropic is narrower
+    than what reaches us: the news item, your question, and your symbols and
+    asset types — <strong>never the quantities you own</strong>.</p>
+
+    <p><strong>The conversation itself is held in server memory only</strong>
+    and is dropped after about an hour of inactivity. It is not written to a
+    database and it is not used to train AI models.</p>
+
+    <p><strong>An interaction record is kept, and it is not memory-only.</strong>
+    Separately from the conversation, each interaction with the assistant writes
+    a row to a table we keep. That row contains: which kind of interaction it
+    was (a summary generated, a summary served from cache, an “how does this
+    affect me?”, a glossary lookup, a follow-up question), a reference to the
+    news item and its headline, the language, your account identifier and/or the
+    installation identifier, <strong>the symbols and asset types in your
+    portfolio and watchlist</strong>, your risk profile and time horizon, and
+    flags such as whether you typed a custom question. It does
+    <strong>not</strong> contain the text of your questions, the assistant’s
+    answers, or the quantities you own.</p>
+
+    <p>We keep these records to understand which news matters to which kind of
+    reader, and <strong>to build the relevance and news-impact models we intend
+    to train later</strong>. Today no model is trained on them. Please read the
+    retention section below: this table is append-only, it currently has
+    <strong>no expiry</strong>, and deleting your account does not remove it.</p>
 
     <h2>3. How we use your data</h2>
     <ul>
       <li>Provide the app: authentication, syncing your portfolio and watchlist,
       delivering notifications, unlocking subscriptions.</li>
+      <li>Price your portfolio and watchlist, which requires sending those
+      symbols to the market-data providers in section 4.</li>
       <li>Personalize educational explanations, as described above.</li>
+      <li>Enforce the free-tier limit on AI summaries.</li>
+      <li>Diagnose crashes and errors.</li>
+      <li>Build the relevance and news-impact models described in section 2.</li>
       <li>Respond to support and privacy requests.</li>
     </ul>
     <p>We do not sell or share your data with advertisers or data brokers, and
@@ -217,12 +250,22 @@
     <h2>5. Retention</h2>
     <ul>
       <li><strong>Account data, portfolio, watchlist, investor profile,
-      preferences</strong> — kept while your account exists; removed when you
-      delete your account (see section 6).</li>
+      preferences, usage records</strong> — kept while your account exists;
+      removed when you delete your account (see section 6).</li>
       <li><strong>Push tokens</strong> — kept while you are signed in on a
       device; removed on logout or account deletion.</li>
-      <li><strong>AI assistant sessions</strong> — server memory only; typically
-      cleared within about an hour of inactivity.</li>
+      <li><strong>AI assistant conversations</strong> — server memory only,
+      dropped after about an hour of inactivity. Never written to a
+      database.</li>
+      <li><strong>AI interaction records</strong> (section 2) — <strong>kept
+      indefinitely</strong>. This table is append-only, it has no expiry today,
+      and it is <strong>not</strong> removed when you delete your account. We
+      are describing this rather than promising a window we have not yet built;
+      when we set one, it will be stated here with a new effective date.</li>
+      <li><strong>Generated summaries</strong> — the AI summary of a news item
+      is cached per article and language so a second reader does not pay for a
+      second generation. It is about the article, not about you, and carries no
+      account identifier.</li>
       <li><strong>Diagnostics</strong> — error reports are retained by Sentry
       under its own retention schedule.</li>
       <li><strong>Purchase records</strong> — subscription records held by Google
