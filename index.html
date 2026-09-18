@@ -39,8 +39,10 @@
     <code>com.argentum.news</code>; this policy covers both, and says which
     platform it means wherever they differ. It explains what data the app
     handles and your choices. There is
-    <strong>no advertising and no third-party analytics or tracking SDKs</strong>
-    in the app, and we do not sell your data.</p>
+    <strong>no advertising, no ad tracking and no advertising identifiers</strong>
+    in the app, and we do not sell your data. For live prices the app talks
+    directly to two market-data providers — section 4 names every third party
+    and says what each one receives.</p>
 
     <h2>1. Information we collect</h2>
 
@@ -61,6 +63,16 @@
       <li><strong>Investor profile</strong> — optional settings such as risk
       tolerance and time horizon, used to tailor educational explanations.</li>
     </ul>
+
+    <p><strong>Live prices.</strong> To price your portfolio, your watchlist and
+    the ticker bar, the app queries two market-data providers
+    <strong>directly from your device</strong>: Yahoo Finance for equities,
+    indexes and FX, and CoinGecko for crypto. That means the
+    <strong>symbols you hold, track or look up</strong> reach those providers
+    together with your device’s IP address, and Yahoo sets a session cookie that
+    the app stores and returns on later requests. The quantities you own are
+    never sent to them — only the symbols. This happens whether or not you have
+    an account. Section 4 links their policies.</p>
 
     <p><strong>Push notifications.</strong> If you are signed in, the app
     registers a device token with our servers so we can send you notifications —
@@ -111,7 +123,19 @@
     we do not use it for advertising.</p>
 
     <h2>4. Third-party services</h2>
+    <p>These are everyone outside Argentum who receives data, and what each one
+    gets.</p>
     <ul>
+      <li><strong>Yahoo Finance</strong> — live quotes and charts for equities,
+      indexes and FX. Queried <em>from your device</em>, so it receives the
+      symbols you hold, track or look up, and your IP address; it sets a session
+      cookie the app stores and returns. Never your quantities, your account or
+      your email
+      (<a href="https://legal.yahoo.com/us/en/yahoo/privacy/index.html">privacy policy</a>).</li>
+      <li><strong>CoinGecko</strong> — live quotes and charts for crypto, also
+      queried <em>from your device</em>, receiving the crypto symbols you hold,
+      track or look up, and your IP address
+      (<a href="https://www.coingecko.com/en/privacy">privacy policy</a>).</li>
       <li><strong>Supabase</strong> — authentication and database hosting for
       account data (<a href="https://supabase.com/privacy">privacy policy</a>).</li>
       <li><strong>Firebase Cloud Messaging (Google)</strong> — push notification
