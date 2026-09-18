@@ -47,12 +47,28 @@
     <h2>1. Information we collect</h2>
 
     <p><strong>Account data (if you create an account).</strong> You can browse
-    news without an account. If you sign up, we collect your <strong>email
-    address and password</strong>. Authentication is handled through
-    <strong>Supabase</strong>, our authentication and database provider;
-    passwords are stored only in hashed form and we never see or store them in
-    plain text. Signing in issues session tokens that the app stores on your
-    device to keep you logged in.</p>
+    news without an account. There are three ways to sign in, and each one gives
+    us something different:</p>
+    <ul>
+      <li><strong>Email and password</strong> — we receive your email address
+      and a password. Passwords are stored only in hashed form by
+      <strong>Supabase</strong>, our authentication and database provider; we
+      never see or store them in plain text.</li>
+      <li><strong>Continue with Google</strong> (iPhone and Android) — Google
+      returns a signed identity token that we verify. From it we keep your
+      Google account identifier, the email address Google asserts, and
+      <strong>the name on your Google account</strong>.</li>
+      <li><strong>Sign in with Apple</strong> (iPhone) — Apple returns a signed
+      identity token. Apple also hands your name to the app on the very first
+      authorization and never again, so the app forwards it to us then. We keep
+      your Apple account identifier, the address Apple gives us (which may be a
+      private relay address) and, if Apple provided it,
+      <strong>your name</strong>.</li>
+    </ul>
+    <p>For the two social options we store the link between your Argentum
+    account and the provider — the provider’s account identifier, not your
+    password — so the same button signs you back in next time. Signing in issues
+    session tokens that the app stores on your device to keep you logged in.</p>
 
     <p><strong>Data you store with your account.</strong> When signed in, the
     following is saved on our servers so it syncs and powers app features:</p>
@@ -101,11 +117,13 @@
       language and watchlist picks made without an account stay on the phone
       until you sign in. Filters and language do travel with every request to
       our own feed API, because that is how the feed knows what to return.</li>
-      <li><strong>Session tokens</strong>, held in the app’s secure storage on
-      the device.</li>
+      <li><strong>Session tokens</strong> and, on iPhone, the name Apple
+      provides at first sign-in, held in the device keychain.</li>
     </ul>
-    <p>We do <strong>not</strong> collect your name, contacts, precise location,
-    or advertising identifiers.</p>
+    <p>We do <strong>not</strong> collect your contacts, your precise location,
+    or advertising identifiers. The app asks for no location or contacts
+    permission on either platform. We do receive your name when you sign in with
+    Google or Apple, as described above.</p>
 
     <h2>2. The AI assistant (“How does this affect me?”)</h2>
     <p>When you use the assistant, the app sends the relevant news item, your
@@ -145,14 +163,22 @@
       (<a href="https://www.coingecko.com/en/privacy">privacy policy</a>).</li>
       <li><strong>Supabase</strong> — authentication and database hosting for
       account data (<a href="https://supabase.com/privacy">privacy policy</a>).</li>
-      <li><strong>Firebase Cloud Messaging (Google)</strong> — push notification
-      delivery (<a href="https://firebase.google.com/support/privacy">privacy
-      information</a>).</li>
-      <li><strong>RevenueCat</strong> — subscription management
+      <li><strong>Google</strong> — three separate roles: <em>Firebase Cloud
+      Messaging</em> delivers push notifications on Android; <em>Google Play
+      Billing</em> processes Android payments; and <em>Sign in with Google</em>,
+      if you use it, tells Google you are signing in to Argentum and gives us the
+      identity token described in section 1
+      (<a href="https://firebase.google.com/support/privacy">Firebase</a> ·
+      <a href="https://policies.google.com/privacy">Google</a>).</li>
+      <li><strong>Apple</strong> — the <em>App Store</em> processes iPhone
+      payments, <em>APNs</em> delivers push notifications, and <em>Sign in with
+      Apple</em>, if you use it, tells Apple you are signing in to Argentum and
+      gives us the identity token described in section 1
+      (<a href="https://www.apple.com/legal/privacy/">privacy policy</a>).</li>
+      <li><strong>RevenueCat</strong> — subscription management on both
+      platforms. It is given your Argentum account identifier so your
+      subscription follows your account
       (<a href="https://www.revenuecat.com/privacy">privacy policy</a>).</li>
-      <li><strong>Apple’s App Store</strong> (iPhone) and <strong>Google Play
-      Billing</strong> (Android) — payment processing, governed by Apple’s and
-      Google’s own terms and privacy policies.</li>
       <li><strong>Argentum Feed API</strong> — aggregates headlines from public
       news sources; feed requests include only your market filters and language.</li>
       <li><strong>Argentum Agent Service / Anthropic Claude API</strong> —
