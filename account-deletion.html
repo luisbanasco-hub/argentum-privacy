@@ -30,52 +30,88 @@
   </div></header>
 
   <main class="wrap">
-    <p>You can request deletion of your Argentum News account and the data
-    associated with it at any time. This page explains how, what gets deleted,
-    and what may be retained.</p>
+    <p>You can delete your Argentum News account and the data associated with it
+    at any time, from inside the app. This page explains how, what gets deleted,
+    and what does not.</p>
 
-    <h2>How to request deletion</h2>
+    <h2>How to delete your account</h2>
     <div class="steps">
-      <p><strong>By email (available now):</strong></p>
+      <p><strong>In the app — available now, on iPhone and Android:</strong></p>
       <ol>
-        <li>From the email address you registered with, write to
-          <a href="mailto:privacy@argentum.app?subject=Delete%20my%20Argentum%20account">privacy@argentum.app</a>
-          with the subject <strong>“Delete my Argentum account”</strong>.</li>
-        <li>We verify the request came from the account's own address (we may
-          reply once to confirm — we will never ask for your password).</li>
-        <li>Your account and associated data are deleted within
-          <strong>30 days</strong>, and we confirm by email when it is done.</li>
+        <li>Open <strong>Settings</strong>.</li>
+        <li>Under your account, tap <strong>Delete account</strong>.</li>
+        <li>Confirm in the dialog (<strong>Delete permanently</strong>).</li>
       </ol>
-      <p style="margin-bottom:0"><strong>In the app:</strong> an in-app “Delete
-      account” option is coming in an upcoming update. Until then, email is the
-      supported method.</p>
+      <p style="margin-bottom:0">Deletion runs <strong>immediately</strong>: your
+      data is removed and your account is gone before the app signs you out.
+      There is no waiting period and nothing to confirm by email.</p>
     </div>
 
+    <p style="margin-top:1.5em">If you cannot open the app — for example you
+    lost the device, or you can no longer sign in — write to
+    <a href="mailto:support@argentumhq.com?subject=Delete%20my%20Argentum%20account">support@argentumhq.com</a>
+    from the email address you registered with, with the subject
+    <strong>“Delete my Argentum account”</strong>. We may reply once to confirm
+    it is you — we will never ask for your password — and we complete the
+    deletion within <strong>30 days</strong>. That 30-day ceiling applies only
+    to this manual route; the in-app one is immediate.</p>
+
     <h2>What is deleted</h2>
+    <p>Everything below is removed by the in-app deletion, in one operation:</p>
     <ul>
-      <li>Your account (login email and credentials).</li>
+      <li>Your account itself (login email and credentials).</li>
+      <li>The link between your account and Google or Apple, if you signed in
+        with either — including the name and address the provider gave us.</li>
       <li>Your portfolio holdings and their change history.</li>
-      <li>Your watchlist and personalization data linked to the account
-        (e.g. investor profile settings synced with your account).</li>
+      <li>Your watchlist.</li>
+      <li>Your preferences: market filters, investor profile, and notification
+        settings.</li>
       <li>Your push-notification registration tokens.</li>
       <li>Our record linking your account to a subscription.</li>
+      <li>Your app usage records: the daily count of AI summaries used, and the
+        record of which articles you opened a summary for.</li>
     </ul>
 
-    <h2>What may be retained</h2>
+    <h2>What is <em>not</em> deleted</h2>
     <ul>
-      <li><strong>Purchase/billing records</strong> held by Google Play and our
-        payments processor (RevenueCat) are governed by their policies and by
-        tax/accounting law; deleting your Argentum account does not cancel an
-        active Google Play subscription — manage that in
-        <a href="https://play.google.com/store/account/subscriptions">Play subscriptions</a>.</li>
-      <li><strong>Device-local data</strong> (preferences, cached news) lives only
-        on your device — uninstalling the app or clearing its storage removes it.</li>
-      <li>Minimal records we are legally required to keep, for no longer than required.</li>
+      <li><strong>AI interaction records.</strong> Every use of the AI assistant
+        writes a row recording the kind of interaction, the news item and its
+        headline, the language, your account identifier and/or the installation
+        identifier, and the <em>symbols</em> in your portfolio and watchlist
+        along with your risk profile and time horizon. It never contains the
+        text of your questions, the assistant’s answers, or the quantities you
+        own. <strong>These rows are append-only, have no expiry today, and are
+        not removed when you delete your account.</strong> We are telling you
+        this plainly instead of listing a deletion we have not built. Section 2
+        of the <a href="index.html">privacy policy</a> describes them in full,
+        and if you want them removed, write to the address above and we will do
+        it by hand.</li>
+      <li><strong>Purchase and billing records</strong> held by Apple, Google
+        Play and our payments processor (RevenueCat) are governed by their
+        policies and by tax/accounting law. <strong>Deleting your Argentum
+        account does not cancel an active subscription</strong> — cancel it
+        yourself in
+        <a href="https://apps.apple.com/account/subscriptions">Apple subscriptions</a>
+        (iPhone) or
+        <a href="https://play.google.com/store/account/subscriptions">Play subscriptions</a>
+        (Android).</li>
+      <li><strong>Cached article summaries.</strong> The AI summary of a news
+        item is stored per article and language so the next reader does not pay
+        for a second generation. It is about the article, carries no account
+        identifier, and is not yours to delete.</li>
+      <li><strong>Error reports</strong> already sent to our monitoring provider
+        (Sentry) follow its own retention schedule. They carry your account
+        identifier but no financial data, email or name.</li>
+      <li><strong>Device-local data</strong> (offline cache, signed-out
+        settings, the installation identifier) lives only on your device —
+        uninstalling the app or clearing its storage removes it.</li>
+      <li>Minimal records we are legally required to keep, for no longer than
+        required.</li>
     </ul>
 
     <h2>Questions</h2>
     <p>Anything unclear, or a request about data we may hold without an account:
-    <a href="mailto:privacy@argentum.app">privacy@argentum.app</a>. See also our
+    <a href="mailto:support@argentumhq.com">support@argentumhq.com</a>. See also our
     <a href="index.html">privacy policy</a>.</p>
   </main>
 

@@ -27,26 +27,49 @@
 <body>
   <header><div class="wrap">
     <h1>Argentum News — Privacy Policy</h1>
-    <p>Effective date: July 3, 2026</p>
+    <p>Effective date: September 17, 2026</p>
   </div></header>
 
   <main class="wrap">
     <p>Argentum News (“the app”, “we”, “us”) is a financial news reader with an
     educational AI assistant, optional user accounts, portfolio and watchlist
-    features, push notifications, and an optional paid subscription. This policy
-    explains what data the app handles and your choices. There is
-    <strong>no advertising and no third-party analytics or tracking SDKs</strong>
-    in the app, and we do not sell your data.</p>
+    features, push notifications, and an optional paid subscription. It is
+    published for <strong>iPhone (App Store)</strong> and
+    <strong>Android (Google Play)</strong> under the same bundle id
+    <code>com.argentum.news</code>; this policy covers both, and says which
+    platform it means wherever they differ. It explains what data the app
+    handles and your choices. There is
+    <strong>no advertising, no ad tracking and no advertising identifiers</strong>
+    in the app, and we do not sell your data. We do use a crash- and
+    error-reporting SDK (Sentry) and, for live prices, the app talks directly to
+    two market-data providers — section 4 names every third party and says what
+    each one receives.</p>
 
     <h2>1. Information we collect</h2>
 
     <p><strong>Account data (if you create an account).</strong> You can browse
-    news without an account. If you sign up, we collect your <strong>email
-    address and password</strong>. Authentication is handled through
-    <strong>Supabase</strong>, our authentication and database provider;
-    passwords are stored only in hashed form and we never see or store them in
-    plain text. Signing in issues session tokens that the app stores on your
-    device to keep you logged in.</p>
+    news without an account. There are three ways to sign in, and each one gives
+    us something different:</p>
+    <ul>
+      <li><strong>Email and password</strong> — we receive your email address
+      and a password. Passwords are stored only in hashed form by
+      <strong>Supabase</strong>, our authentication and database provider; we
+      never see or store them in plain text.</li>
+      <li><strong>Continue with Google</strong> (iPhone and Android) — Google
+      returns a signed identity token that we verify. From it we keep your
+      Google account identifier, the email address Google asserts, and
+      <strong>the name on your Google account</strong>.</li>
+      <li><strong>Sign in with Apple</strong> (iPhone) — Apple returns a signed
+      identity token. Apple also hands your name to the app on the very first
+      authorization and never again, so the app forwards it to us then. We keep
+      your Apple account identifier, the address Apple gives us (which may be a
+      private relay address) and, if Apple provided it,
+      <strong>your name</strong>.</li>
+    </ul>
+    <p>For the two social options we store the link between your Argentum
+    account and the provider — the provider’s account identifier, not your
+    password — so the same button signs you back in next time. Signing in issues
+    session tokens that the app stores on your device to keep you logged in.</p>
 
     <p><strong>Data you store with your account.</strong> When signed in, the
     following is saved on our servers so it syncs and powers app features:</p>
@@ -56,69 +79,176 @@
       <li><strong>Watchlist</strong> — the symbols you track.</li>
       <li><strong>Investor profile</strong> — optional settings such as risk
       tolerance and time horizon, used to tailor educational explanations.</li>
+      <li><strong>Preferences</strong> — your market filters (Equities, Crypto,
+      Forex, Futures) and your notification settings, saved server-side so they
+      follow your account to another device. Signed out, your filters stay on
+      the phone.</li>
+      <li><strong>App usage records</strong> — a daily count of AI summaries you
+      used, and which articles you opened a summary for on a given day. This is
+      what enforces the free-tier limit and stops the same article being charged
+      twice.</li>
     </ul>
+
+    <p><strong>Live prices.</strong> To price your portfolio, your watchlist and
+    the ticker bar, the app queries two market-data providers
+    <strong>directly from your device</strong>: Yahoo Finance for equities,
+    indexes and FX, and CoinGecko for crypto. That means the
+    <strong>symbols you hold, track or look up</strong> reach those providers
+    together with your device’s IP address, and Yahoo sets a session cookie that
+    the app stores and returns on later requests. The quantities you own are
+    never sent to them — only the symbols. This happens whether or not you have
+    an account. Section 4 links their policies.</p>
 
     <p><strong>Push notifications.</strong> If you are signed in, the app
-    registers a <strong>Firebase Cloud Messaging (FCM) device token</strong> with
-    our servers so we can send you notifications. The token is removed
-    server-side when you log out, and you can disable notifications at any time
-    in Android system settings.</p>
+    registers a device token with our servers so we can send you notifications —
+    an <strong>Apple Push Notification service (APNs)</strong> token on iPhone,
+    a <strong>Firebase Cloud Messaging (FCM)</strong> token on Android. The
+    token is removed server-side when you log out, and you can turn
+    notifications off at any time in your device’s system settings, or from the
+    app’s notification settings.</p>
 
     <p><strong>Purchases.</strong> Subscriptions are processed by
-    <strong>Google Play Billing</strong> and managed through
-    <strong>RevenueCat</strong>. We receive subscription status and a purchase
-    identifier linked to your account so we can unlock paid features. We never
-    receive or store your payment card details — those stay with Google.</p>
+    <strong>Apple’s App Store</strong> on iPhone and <strong>Google Play
+    Billing</strong> on Android, and managed through <strong>RevenueCat</strong>
+    on both. We receive subscription status and a purchase identifier linked to
+    your account so we can unlock paid features. We never receive or store your
+    payment card details — those stay with Apple or Google.</p>
 
-    <p><strong>On your device only (never sent to us):</strong></p>
+    <p><strong>Diagnostics.</strong> When the app hits an error it sends a
+    report to <strong>Sentry</strong>. Section 4 says exactly what that report
+    contains and what is stripped out of it.</p>
+
+    <p><strong>Installation identifier.</strong> The app generates a random
+    identifier the first time it runs, stores it on the device, and sends it
+    with requests to our AI service so the free daily allowance can be counted
+    for a phone that has no account. It is not an advertising identifier, it is
+    not shared with advertisers, and deleting and reinstalling the app produces
+    a new one.</p>
+
+    <p><strong>On your device only:</strong></p>
     <ul>
-      <li><strong>Preferences</strong> — your selected market filters (Equities,
-      Crypto, Forex, Futures) and language (English, Spanish, Portuguese), stored
-      locally (Android <code>DataStore</code>).</li>
       <li><strong>Offline cache</strong> — recent news items cached locally so
       the feed works without a connection.</li>
+      <li><strong>Your settings while signed out</strong> — market filters,
+      language and watchlist picks made without an account stay on the phone
+      until you sign in. Filters and language do travel with every request to
+      our own feed API, because that is how the feed knows what to return.</li>
+      <li><strong>Session tokens</strong>, kept in the platform’s encrypted
+      store (the Keychain on iPhone, encrypted preferences on Android). On
+      iPhone, the name and address Apple gives on the very first
+      authorization are cached there too, so they are not lost if that first
+      sign-in call fails; they are sent to us and then stop being needed.</li>
     </ul>
-    <p>We do <strong>not</strong> collect your name, contacts, precise location,
-    or advertising identifiers.</p>
+    <p>We do <strong>not</strong> collect your contacts, your precise location,
+    or advertising identifiers. The app asks for no location or contacts
+    permission on either platform. We do receive your name when you sign in with
+    Google or Apple, as described above.</p>
 
     <h2>2. The AI assistant (“How does this affect me?”)</h2>
     <p>When you use the assistant, the app sends the relevant news item, your
     question, your selected market filters and language, and — if you are signed
-    in — your <strong>portfolio holdings, watchlist, and investor profile
-    (risk tolerance and time horizon)</strong> to the Argentum Agent Service.
-    This lets the assistant relate the news to your positions. The service uses
-    Anthropic’s Claude API to generate a plain-language educational explanation.
-    If you are signed out, none of that personal data is available and you get a
-    generic explanation. Conversation sessions are held <strong>in server memory
-    only</strong> (typically cleared within about an hour of inactivity) and are
-    not used to train AI models.</p>
+    in — your <strong>portfolio holdings (symbol, asset type and quantity),
+    watchlist, and investor profile (risk tolerance and time horizon)</strong>
+    to the Argentum Agent Service. This lets the assistant relate the news to
+    your positions. If you are signed out, none of that personal data is
+    available and you get a generic explanation.</p>
+
+    <p>The service uses <strong>Anthropic’s Claude API</strong> to generate a
+    plain-language educational explanation. What reaches Anthropic is narrower
+    than what reaches us: the news item, your question, and your symbols and
+    asset types — <strong>never the quantities you own</strong>.</p>
+
+    <p><strong>The conversation itself is held in server memory only</strong>
+    and is dropped after about an hour of inactivity. It is not written to a
+    database and it is not used to train AI models.</p>
+
+    <p><strong>An interaction record is kept, and it is not memory-only.</strong>
+    Separately from the conversation, each interaction with the assistant writes
+    a row to a table we keep. That row contains: which kind of interaction it
+    was (a summary generated, a summary served from cache, a “how does this
+    affect me?”, a glossary lookup, a follow-up question), a reference to the
+    news item and its headline, the language, your account identifier and/or the
+    installation identifier, <strong>the symbols and asset types in your
+    portfolio and watchlist</strong>, your risk profile and time horizon, and
+    flags such as whether you typed a custom question. It does
+    <strong>not</strong> contain the text of your questions, the assistant’s
+    answers, or the quantities you own.</p>
+
+    <p>We keep these records to understand which news matters to which kind of
+    reader, and <strong>to build the relevance and news-impact models we intend
+    to train later</strong>. Today no model is trained on them. Please read the
+    retention section below: this table is append-only, it currently has
+    <strong>no expiry</strong>, and deleting your account does not remove it.</p>
 
     <h2>3. How we use your data</h2>
     <ul>
       <li>Provide the app: authentication, syncing your portfolio and watchlist,
       delivering notifications, unlocking subscriptions.</li>
+      <li>Price your portfolio and watchlist, which requires sending those
+      symbols to the market-data providers in section 4.</li>
       <li>Personalize educational explanations, as described above.</li>
+      <li>Enforce the free-tier limit on AI summaries.</li>
+      <li>Diagnose crashes and errors.</li>
+      <li>Build the relevance and news-impact models described in section 2.</li>
       <li>Respond to support and privacy requests.</li>
     </ul>
     <p>We do not sell or share your data with advertisers or data brokers, and
     we do not use it for advertising.</p>
 
     <h2>4. Third-party services</h2>
+    <p>These are everyone outside Argentum who receives data, and what each one
+    gets.</p>
     <ul>
+      <li><strong>Yahoo Finance</strong> — live quotes and charts for equities,
+      indexes and FX. Queried <em>from your device</em>, so it receives the
+      symbols you hold, track or look up, and your IP address; it sets a session
+      cookie the app stores and returns. Never your quantities, your account or
+      your email
+      (<a href="https://legal.yahoo.com/us/en/yahoo/privacy/index.html">privacy policy</a>).</li>
+      <li><strong>CoinGecko</strong> — live quotes and charts for crypto, also
+      queried <em>from your device</em>, receiving the crypto symbols you hold,
+      track or look up, and your IP address
+      (<a href="https://www.coingecko.com/en/privacy">privacy policy</a>).</li>
       <li><strong>Supabase</strong> — authentication and database hosting for
       account data (<a href="https://supabase.com/privacy">privacy policy</a>).</li>
-      <li><strong>Firebase Cloud Messaging (Google)</strong> — push notification
-      delivery (<a href="https://firebase.google.com/support/privacy">privacy
-      information</a>).</li>
-      <li><strong>RevenueCat</strong> — subscription management
+      <li><strong>Render</strong> — United States hosting provider for our two
+      backend services (the feed API and the AI agent service). Everything those
+      services process passes through its infrastructure
+      (<a href="https://render.com/privacy">privacy policy</a>).</li>
+      <li><strong>Sentry</strong> — crash and error reporting from the app and
+      from our backends. An error report carries the stack trace, the screen,
+      your device model, OS version and app build, error codes, and your
+      Argentum account identifier. It deliberately carries
+      <strong>no financial data</strong> — no holding, no amount, no portfolio
+      symbol — and no credentials, tokens, email address or name; screenshots
+      and view hierarchies are off, and query strings are stripped from every
+      URL before the report is sent
+      (<a href="https://sentry.io/privacy/">privacy policy</a>).</li>
+      <li><strong>Google</strong> — three separate roles: <em>Firebase Cloud
+      Messaging</em> delivers push notifications on Android; <em>Google Play
+      Billing</em> processes Android payments; and <em>Sign in with Google</em>,
+      if you use it, tells Google you are signing in to Argentum and gives us the
+      identity token described in section 1
+      (<a href="https://firebase.google.com/support/privacy">Firebase</a> ·
+      <a href="https://policies.google.com/privacy">Google</a>).</li>
+      <li><strong>Apple</strong> — the <em>App Store</em> processes iPhone
+      payments, <em>APNs</em> delivers push notifications, and <em>Sign in with
+      Apple</em>, if you use it, tells Apple you are signing in to Argentum and
+      gives us the identity token described in section 1
+      (<a href="https://www.apple.com/legal/privacy/">privacy policy</a>).</li>
+      <li><strong>RevenueCat</strong> — subscription management on both
+      platforms. It is given your Argentum account identifier so your
+      subscription follows your account
       (<a href="https://www.revenuecat.com/privacy">privacy policy</a>).</li>
-      <li><strong>Google Play Billing</strong> — payment processing, governed by
-      Google’s terms and privacy policy.</li>
-      <li><strong>Argentum Feed API</strong> — aggregates headlines from public
-      news sources; feed requests include only your market filters and language.</li>
-      <li><strong>Argentum Agent Service / Anthropic Claude API</strong> —
-      generates educational explanations. See Anthropic’s
+      <li><strong>Anthropic (Claude API)</strong> — generates the educational
+      explanations. Receives the news item, your question, and your symbols and
+      asset types; never your quantities. See Anthropic’s
       <a href="https://www.anthropic.com/legal/privacy">privacy policy</a>.</li>
+      <li><strong>Argentum Feed API</strong> — our own service; aggregates
+      headlines from public news sources. Feed requests carry your market
+      filters and language, with or without an account.</li>
+      <li><strong>Argentum Agent Service</strong> — our own service; see
+      section 2 for everything it receives and keeps.</li>
       <li><strong>News publishers</strong> — articles come from third parties (e.g.
       AP, MarketWatch, CoinDesk, The Block); opening a story uses your browser and
       that publisher’s own policy.</li>
@@ -126,41 +256,69 @@
 
     <h2>5. Retention</h2>
     <ul>
-      <li><strong>Account data, portfolio, watchlist, investor profile</strong> —
-      kept while your account exists; deleted within 30 days of an account
-      deletion request.</li>
+      <li><strong>Account data, portfolio, watchlist, investor profile,
+      preferences, usage records</strong> — kept while your account exists;
+      removed when you delete your account (see section 6).</li>
       <li><strong>Push tokens</strong> — kept while you are signed in on a
       device; removed on logout or account deletion.</li>
-      <li><strong>AI assistant sessions</strong> — server memory only; typically
-      cleared within about an hour of inactivity.</li>
-      <li><strong>Purchase records</strong> — subscription records held by Google
-      Play and RevenueCat are governed by their policies and by tax/accounting
-      requirements.</li>
-      <li><strong>Device-local data</strong> — stays on your device until you
-      uninstall the app or clear its storage.</li>
+      <li><strong>AI assistant conversations</strong> — server memory only,
+      dropped after about an hour of inactivity. Never written to a
+      database.</li>
+      <li><strong>AI interaction records</strong> (section 2) — <strong>kept
+      indefinitely</strong>. This table is append-only, it has no expiry today,
+      and it is <strong>not</strong> removed when you delete your account. We
+      are describing this rather than promising a window we have not yet built;
+      when we set one, it will be stated here with a new effective date.</li>
+      <li><strong>Generated summaries</strong> — the AI summary of a news item
+      is cached per article and language so a second reader does not pay for a
+      second generation. It is about the article, not about you, and carries no
+      account identifier.</li>
+      <li><strong>Diagnostics</strong> — error reports are retained by Sentry
+      under its own retention schedule.</li>
+      <li><strong>Purchase records</strong> — subscription records held by Apple,
+      Google Play and RevenueCat are governed by their policies and by
+      tax/accounting requirements.</li>
+      <li><strong>Device-local data</strong> — the offline cache, your
+      signed-out settings and the installation identifier stay on your device
+      until you uninstall the app or clear its storage.</li>
     </ul>
 
     <h2>6. Deletion and your rights</h2>
     <ul>
-      <li><strong>Delete your account and data</strong> — see our
-      <a href="account-deletion.html">account &amp; data deletion page</a> for
-      how to request deletion, what is removed, and what may be retained. We
-      complete deletion within 30 days.</li>
+      <li><strong>Delete your account and data</strong> — in the app, open
+      <strong>Settings → Delete account</strong>, confirm, and the account and
+      the data listed on our
+      <a href="account-deletion.html">account &amp; data deletion page</a> are
+      removed <strong>immediately</strong>, not on a 30-day schedule. That page
+      also lists what is <em>not</em> removed, which you should read before you
+      decide.</li>
       <li><strong>Clear local data</strong> — deleting the app or clearing its
-      storage removes all preferences and cached news from your device.</li>
+      storage removes the offline cache, your signed-out settings and the
+      installation identifier from your device.</li>
       <li><strong>Access, correction, portability</strong> — contact us to
       request a copy or correction of the data linked to your account. We
       respond consistent with applicable law (including GDPR and CCPA where they
       apply).</li>
-      <li><strong>Notifications</strong> — turn off push notifications any time
-      in Android system settings.</li>
+      <li><strong>Notifications</strong> — turn push notifications off any time
+      in your device’s system settings (iPhone: Settings → Notifications →
+      Argentum News; Android: Settings → Apps → Argentum News →
+      Notifications), or from the app’s own notification settings.</li>
     </ul>
 
     <h2>7. Security</h2>
-    <p>Data is sent over encrypted connections (HTTPS/TLS). Account data is
-    protected by access-controlled infrastructure, and API requests for your
-    data require your personal session token. No method of transmission or
-    storage is 100% secure, but we work to protect your information.</p>
+    <p>Data is sent over encrypted connections (HTTPS/TLS). Your account data —
+    portfolio, watchlist, preferences, usage records — is stored behind
+    per-account database rules and every request for it requires your personal
+    session token; a request without one is refused.</p>
+    <p>Two paths work differently and you should know it. Our
+    <strong>AI service accepts requests with or without a session token</strong>:
+    signed in, the app attaches yours and the request is attributed to your
+    account; signed out, the request is anonymous and identified only by the
+    installation identifier. And the <strong>market-data providers in section 4
+    are queried directly by the app</strong>, outside our servers entirely, so
+    what they see is governed by their policies and not by ours.</p>
+    <p>No method of transmission or storage is 100% secure, but we work to
+    protect your information.</p>
 
     <h2>8. Children’s privacy</h2>
     <p>Argentum News is not directed to children under 13 (or under 16 where
@@ -171,7 +329,8 @@
     here with a new effective date.</p>
 
     <h2>10. Contact</h2>
-    <p>Privacy questions or requests: <a href="mailto:privacy@argentum.app">privacy@argentum.app</a></p>
+    <p>Privacy questions or requests:
+    <a href="mailto:support@argentumhq.com">support@argentumhq.com</a></p>
 
     <div class="note">⚠️ <strong>Educational use only.</strong> Argentum News provides
     general financial education and news. It is <strong>not financial advice</strong>
