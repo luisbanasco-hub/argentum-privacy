@@ -44,6 +44,9 @@ ramas propias.
 | RevenueCat recibe el identificador de la cuenta | iOS `SubscriptionManager.swift:268-269` (`Purchases.shared.logIn(uid)`) |
 | El nombre llega al servidor en el login social | feed `src/auth.py:64-72` (`OAuthRequest.full_name`), `src/oauth_verify.py:197` (Google, del token), iOS `LoginView.swift:169-185` + `AuthService.swift:58-66` (Apple, del cliente) |
 | Ni ubicación, ni contactos, ni identificador publicitario | Android `AndroidManifest.xml:4-6` (sólo INTERNET, ACCESS_NETWORK_STATE, POST_NOTIFICATIONS) · iOS `Config/Info.plist` sin ninguna *usage description* |
+| El video embebido (YouTube, Vimeo, Dailymotion) se carga solo al abrir el artículo, sin tocar play | Android `EmbebidoDeVideo.kt:41-48` (lista `HOSTS`), `NewsDetailScreen.kt:492,520` (`loadUrl` en la composición) · iOS `NewsDetailView.swift:287-290` (`WebPlayerView` si hay `video_url`), `:351-353` (`load` en `updateUIView`) — main al 2026-10-02: iOS `c7c4d35`, Android `b244dae` |
+| En iPhone puede ser otro servicio de video | iOS no valida el host: carga cualquier `URL(string: videoUrl)` (`NewsDetailView.swift:287`). Android sí (`EmbebidoDeVideo.kt:50-67`) |
+| Ninguna app fuerza `youtube-nocookie.com` | Android lo acepta pero carga la URL tal cual (`EmbebidoDeVideo.kt:43`, `NewsDetailScreen.kt:520`); iOS ni lo menciona. Por eso el documento no promete el modo de privacidad reforzada |
 
 ## 2. Qué guarda el servidor
 
